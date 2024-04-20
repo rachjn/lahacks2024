@@ -24,7 +24,7 @@ export default function Menu() {
       <div>
         <button
           onClick={handleClick}
-          className={`h-16 bg-gray-500 w-16 m-6
+          className={`h-16 bg-gray-500 w-16 m-7
         ${isOpen ? "hidden" : "visible"}`}
         ></button>
       </div>
