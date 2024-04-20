@@ -3,40 +3,44 @@ import Link from "next/link";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import { signup } from "@/app/actions/auth";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState, useEffect, ChangeEvent } from "react";
+import axios from "axios";
 
-// const client = axios.create({
-//     baseURL: "http://127.0.0.1:8000"
-//   });
+const client = axios.create({
+    baseURL: "http://127.0.0.1:8000"
+  });
 
 export default function Register() {
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState(Boolean);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({});
 
-  const submitLogin = async (event: any) => {
-    event.preventDefault();
 
-    const formData = new FormData();
-    formData.set("username", username);
-    formData.set("email", email);
-    console.log("Email" + formData.get(email));
-    formData.set("password", password);
-    const response = await fetch("http://127.0.0.1:8000/api/register", {
-      method: "POST",
-      body: formData,
+  useEffect(() => {
+    client.get("/api/user")
+    .then((res) => {
+      setCurrentUser(true);
+    })
+    .catch((error) => {
+      setCurrentUser(false);
     });
-    // Try parsing the response as JSON
-    try {
-      const jsonData = JSON.parse(response.toString());
-      console.log("Parsed response from API:", jsonData);
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-    }
-    console.log("response from API", response);
-  };
+  }, []);
+
+
+  const submitRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    client.post(
+      "/api/register",
+      {
+        email: email,
+        username: username,
+        password: password
+      }
+    )
+  }
 
   return (
     <div>
@@ -47,7 +51,7 @@ export default function Register() {
         </div>
         {/* <div className="m-6 m-24 mt-0 text-center relative">hello</div> */}
         <div className="text-center mb-[16.5rem] mt-[12rem]">
-          <form action={signup} onSubmit={(event) => submitLogin(event)}>
+          <form action={signup} onSubmit={submitRegister}>
             <div className="flex flex-col mb-10 mx-10 gap-1">
               {/* <label htmlFor="name">Name</label>
               <input id="name" name="name" placeholder="Name" /> */}
