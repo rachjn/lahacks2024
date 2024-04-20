@@ -21,6 +21,7 @@ def custom_validation(data):
 def validate_email(data):
     email = data['email'].strip()
     if not email:
+        print ("Email: ", email)
         raise ValidationError('an email is needed')
     return True
 
