@@ -1,10 +1,10 @@
-import Menu from "../components/menu";
+import Navbar from "../components/navbar";
 
 export default function Logout() {
   return (
     <div>
-      <Menu />
-      Logout
+      <Navbar />
+      <div className="m-6 mt-0">Logout</div>
     </div>
   );
 }

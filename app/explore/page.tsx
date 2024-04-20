@@ -1,10 +1,10 @@
-import Menu from "../components/menu";
+import Navbar from "../components/navbar";
 
 export default function Explore() {
   return (
     <div>
-      <Menu />
-      Explore
+      <Navbar />
+      <div className="m-6 mt-0">Explore</div>
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Header from "./header";
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false); //set state to false at first
@@ -20,13 +21,17 @@ export default function Menu() {
   return (
     <>
       {/* <div className="m-4 h-14 w-14 bg-blue-500 items-center"> */}
-      <button
-        onClick={handleClick}
-        className={`h-16 bg-gray-500 w-16 m-5
+      <div>
+        <button
+          onClick={handleClick}
+          className={`h-16 bg-gray-500 w-16 m-6
         ${isOpen ? "hidden" : "visible"}`}
-      ></button>
-      <div className={`${isOpen ? "bg-blue-100 h-screen" : "hidden"}`}>
-        <div className="absolute left-0 m-5">
+        ></button>
+      </div>
+      <div
+        className={`${isOpen ? "bg-blue-100 h-screen basis-full" : "hidden"}`}
+      >
+        <div className="absolute left-0 m-6">
           <button
             onClick={handleClick}
             className="h-16 bg-gray-500 w-16"
@@ -54,6 +59,7 @@ export default function Menu() {
           </div>
         </div>
       </div>
+      {isOpen === false && <Header />}
     </>
   );
 }

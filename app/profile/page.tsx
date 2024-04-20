@@ -1,10 +1,10 @@
-import Menu from "../components/menu";
+import Navbar from "../components/navbar";
 
 export default function Profile() {
   return (
     <div>
-      <Menu />
-      Profile
+      <Navbar />
+      <div className="m-6 mt-0">Profile</div>
     </div>
   );
 }
