@@ -11,10 +11,10 @@ export default function Home() {
       <div className="mt-[12rem]">
         <Header />
       </div>
-      <div className="m-20 mt-8 text-xl text-center relative">
+      <div className="m-20 mt-10 text-xl text-center relative">
         Your solution to finding school clubs!
       </div>
-      <div className="text-center mb-[16.5rem] mt-[6rem]">
+      <div className="text-center mb-[17.7rem] mt-[6rem]">
         <Link
           href="/register"
           className="text-lg rounded-lg relative p-4 px-20 h-16 bg-navy w-16 font-bold"

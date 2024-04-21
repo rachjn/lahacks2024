@@ -8,7 +8,16 @@ export default function Header() {
       <div className="font-bold flex justify-center">
         <Image src="./title.svg" width={280} height={200} alt="Juncture" />
       </div>
-      <Link href="/profile" className="h-16 bg-gray-400 w-12 m-7" />
+      {/* <a href="/profile">
+        <Image
+          src="./user.svg"
+          width={35}
+          height={30}
+          alt="menu"
+          className="m-7 ml-4"
+        />
+      </a> */}
+      {/* <Link href="/profile" className="h-16 bg-gray-400 w-12 m-7" /> */}
     </>
   );
 }
