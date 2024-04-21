@@ -14,6 +14,9 @@ import Image from "next/image";
 export default function Explore() {
   const [image, setImage] = useState("");
   const [clubID, setClubID] = useState(81);
+  const [clubName, setClubName] = useState("");
+  const [clubBio, setClubBio] = useState("");
+  const [openBio, setOpenBio] = useState(false);
 
   const makeAPICall = () => {
     client
@@ -24,6 +27,8 @@ export default function Explore() {
       .then((data) => {
         console.log(JSON.stringify(data));
         setImage(data.image);
+        setClubName(data.name);
+        setClubBio(data.description);
       })
       .catch((error) => {
         console.error("Error parsing JSON:", error);
@@ -41,6 +46,11 @@ export default function Explore() {
   const handleClick = () => {
     setClubID(clubID + 1);
     makeAPICall();
+  };
+
+  const arrowClick = () => {
+    if (!openBio) setOpenBio(true);
+    else setOpenBio(false);
   };
 
   const addClubToUser = () => {
@@ -66,19 +76,51 @@ export default function Explore() {
       </button> */}
       <Navbar />
       <div className="flex flex-col mt-16 items-center h-[28rem] mb-7 drop-shadow-md">
-        <div className="h-[28rem] w-4/5 bg-black rounded-xl overflow-hidden drop-shadow-md">
-          <div className="absolute mx-5 h-[10rem] mt-[20rem] font-bold text-3xl ">
-            Club Name
-            <div className="mt-2 font-normal text-base">Biography</div>
+        <div className="h-[28rem] w-4/5 bg-teal rounded-xl overflow-hidden drop-shadow-md">
+          <div
+            className={`absolute mx-5 h-[10rem] mt-[19.5rem] font-bold text-2xl " 
+          ${openBio ? "w-11/12 pr-3" : "visible"}`}
+          >
+            <div
+              className={`line-clamp-1
+          ${openBio ? "-mt-[18.5rem] mb-2 line-clamp-none" : "visible"}`}
+            >
+              {clubName}
+            </div>
+            <div className="h-20 relative">
+              <div
+                className={`mr-6 font-normal text-sm line-clamp-4
+          ${
+            openBio
+              ? "absolute top-0 h-[23rem] line-clamp-none overflow-scroll"
+              : "visible"
+          }`}
+              >
+                {clubBio}
+              </div>
+              <Image
+                className="fixed bottom-5 right-5"
+                onClick={arrowClick}
+                src="./arrow.svg"
+                height={20}
+                width={20}
+                alt="arrow"
+              />
+              {/* <button className="absolute bottom-0 right-0 h-6 bg-white w-6 rounded-full "></button> */}
+            </div>
           </div>
           <img
-            className="object-cover p-3"
+            className={`object-cover p-3
+          ${openBio ? "hidden" : "visible"}`}
             src={image}
             height={500}
             width={500}
             alt="club image"
           />
-          <div className="w-full -z-10 absolute bg-gradient-to-t from-30% from-navy to-transparent h-[10rem]"></div>
+          <div
+            className={`w-full -z-10 absolute bottom-0 bg-gradient-to-t from-30% from-navy to-transparent h-[10rem]
+          ${openBio ? "bg-navy h-full" : "visible"}`}
+          ></div>
         </div>
       </div>
       <div className="flex justify-between mx-10 drop-shadow-lg mb-8">
