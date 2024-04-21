@@ -10,8 +10,7 @@ const client = axios.create({
 });
 
 export default function Profile() {
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
+  const [context, setContext] = useState("");
   const [data, setData] = useState("");
   const [myName, setMyName] = useState("");
   const [parsedUserData, setParsedUserData] = useState("");
@@ -30,12 +29,8 @@ export default function Profile() {
   client
     .get("/api/user")
     .then((response) => {
-      return response.data.user;
-    })
-    .then((data) => {
       // Handle successful response
-      setUserName(data.username);
-      setEmail(data.email);
+      setContext(JSON.stringify(response.data));
     })
     .catch((error) => {
       // Handle error
@@ -89,8 +84,7 @@ export default function Profile() {
       <div className="flex items-center justify-center gap-5 mt-10">
         <div className="rounded-full bg-black relative w-[136px] h-[136px]"></div>
         <div className="w-[160px] h-[120px] text-lg">
-          <div className="text-3xl font-bold">{userName}</div>
-          {email}
+          <div className="text-3xl font-bold">{}</div>
         </div>
       </div>
       <div className="m-10 mt-14 font-bold text-3xl">
@@ -101,6 +95,8 @@ export default function Profile() {
           <div key={index}>{club.name} </div>
         ))}
       </div>
+
+      <p>Context: {context}</p>
     </div>
   );
 }
