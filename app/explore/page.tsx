@@ -33,12 +33,27 @@ export default function Explore() {
     makeAPICall();
   }, [])
   
+  useEffect(()=> {
+    addClubToUser();
+  }, [])
+
   const handleClick = () => {
-    makeAPICall();
     setClubID(clubID + 1);
+    makeAPICall();
   }
   
-  console.log(image);
+  const addClubToUser = () => {
+    client.put(`/api/clubs/myclubs/add/${clubID-1}`)
+    .catch((error) => {
+      console.error("Error parsing JSON:", error);
+    });
+  }
+
+  const addUser = () => {
+    addClubToUser();
+    handleClick();
+  }
+
   return (
     <div className="animate animate-fade duration-300 delay-75">
       {/* <Navbar />
@@ -61,11 +76,12 @@ export default function Explore() {
       </div>
       <div className="flex justify-between mx-10 drop-shadow-lg mb-8">
         <div className="rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
-          <Image src="./dislike.svg" width={80} height={80} alt="dislike" />
+          <Image src="./dislike.svg" width={80} height={80} alt="dislike" onClick={()=> handleClick()}/>
         </div>
         <div className="rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
-          <Image src="./like.svg" width={80} height={80} alt="like" />
+          <Image src="./like.svg" width={80} height={80} alt="like" onClick={()=>addUser()}/>
         </div>
+        
       </div>
     </div>
   );
