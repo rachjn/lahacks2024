@@ -21,16 +21,15 @@ export default function Explore() {
   const [clubBio, setClubBio] = useState("");
   const [openBio, setOpenBio] = useState(false);
 
-
-  useEffect(() => {
-    client.get("/api/user")
-    .then((res) => {
-      setCurrentUser(true);
-    })
-    .catch((error) => {
-      setCurrentUser(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   client.get("/api/user")
+  //   .then((res) => {
+  //     setCurrentUser(true);
+  //   })
+  //   .catch((error) => {
+  //     setCurrentUser(false);
+  //   });
+  // }, []);
 
   const makeAPICall = () => {
     client
@@ -78,7 +77,7 @@ export default function Explore() {
     handleClick();
   };
 
-  if (currentUser) {
+  // if (currentUser) {
     return (
       <div className="animate animate-fade duration-300 delay-75">
         {/* <Navbar />
@@ -160,7 +159,7 @@ export default function Explore() {
         </div>
       </div>
     );
-  } else {
+  // } else {
     const router = useRouter();
     return (
       <div>
@@ -179,5 +178,5 @@ export default function Explore() {
       </div>
     </div>
     )
-  }
+  // }
 }

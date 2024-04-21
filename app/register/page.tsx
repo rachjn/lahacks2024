@@ -96,8 +96,9 @@ export default function Register() {
             >
               Register
             </button>
+            
           </form>
-            <button
+          <button
               onClick={() => router.push("/login")}
               className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
             >
