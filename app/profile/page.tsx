@@ -2,6 +2,8 @@
 import Navbar from "../components/navbar";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 axios.defaults.withCredentials = true;
 
@@ -13,19 +15,9 @@ export default function Profile() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [data, setData] = useState("");
-  const [myName, setMyName] = useState("");
-  const [parsedUserData, setParsedUserData] = useState("");
-  // const [clubName, setClubName] = useState("");
-  // const [clubBio, setClubBio] = useState("");
-  // const [clubEmail, setClubEmail] = useState("");
-  // const [clubImage, setClubImage] = useState("");
-  // const [clubInsta, setClubInsta] = useState("");
-  // const [clubSite, setClubSite] = useState("");
-  // const clubNames: string[] = [];
+  const [clubIDs, setClubIDs] = useState([]);
+  // const clubIDs: number[] = [];
   const [parsedData, setParsedData] = useState([]);
-  const clubsMap = new Map<string, any>(); //maps club names to
-  // const [clubNames, setClubNames] = useState([]);
-  // const [clubData, setClubData] = useState({});
 
   client
     .get("/api/user")
@@ -58,15 +50,32 @@ export default function Profile() {
         // setClubImage(JSON.parse(data)[0]["description"]);
         const newData = JSON.parse(data);
         setParsedData(newData);
+
+        // const newID = parsedData
+        // parsedData.forEach((club: any, index: number) => {
+        //   const newID = club[index]["club_id"];
+        //   setClubIDs([...clubIDs, newID]);
+        // });
+
+        // const addClubID = (newID) => {
+        //   setClubIDs([...clubIDs, newID]);
+        // };
+
+        console.log(clubIDs);
         // console.log(parsedData);
         //IMPORTANT: parsedData is an ARRAY of JSON objects.
         //each JSON object is a club, with an id, name, etc.
 
         // parsedData.forEach((club: any, index: number) => {
-        //   const name = club["name"];
-        //   clubNames[index] = name;
+        //   const id = club["club_id"];
+        //   clubIDs[index] = id;
         //   // setClubNames();
         // });
+
+        // console.log(clubIDs);
+        // cont clubIDs = parsedData.map((club: any, index: number) => (
+
+        // ))
 
         // clubNames.map((name) => {
         //   console.log(name);
@@ -97,8 +106,19 @@ export default function Profile() {
         {/* <div className=""></div> */}
         {/* {data[0]["name" as any]} */}
         <button onClick={getUserSavedClubs}>Saved Clubs</button>
+        <Image
+          className="rotate-[225deg] mx-3 inline"
+          src="./arrow.svg"
+          height={20}
+          width={20}
+          alt="arrow"
+        />
         {parsedData.map((club: any, index: number) => (
-          <div key={index}>{club.name} </div>
+          <div key={index}>
+            <Link href={`/${club.club_id}`} className="w-full">
+              {club.name}
+            </Link>{" "}
+          </div>
         ))}
       </div>
     </div>
