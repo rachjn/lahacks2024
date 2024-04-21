@@ -1,5 +1,4 @@
 "use client";
-import { getClubData } from "../api/clubs";
 import { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";

@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
+      <link
+        rel="icon"
+        href="/favicon.ico?v=2"
+        type="image/x-icon"
+        sizes="16x16"
+      />
       <body className="flex flex-col min-h-screen font-rigsans">
         <Image
           src="./orangeblob.svg"
