@@ -15,8 +15,6 @@ export default function Profile() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [data, setData] = useState("");
-  const [clubIDs, setClubIDs] = useState([]);
-  // const clubIDs: number[] = [];
   const [parsedData, setParsedData] = useState([]);
 
   client
@@ -69,10 +67,6 @@ export default function Profile() {
       });
   };
 
-  useEffect(() => {
-    getUserSavedClubs();
-  }, []);
-
   // const displayNames = clubNames.map((name) => <div key={name}>{name}</div>);
   const dataMap: Number[] = parsedData.map((club: any) => club.club_id);
   const x = dataMap[0];
@@ -93,6 +87,7 @@ export default function Profile() {
 
   useEffect(() => {
     makeAPICall();
+    getUserSavedClubs();
   }, []);
 
   return (

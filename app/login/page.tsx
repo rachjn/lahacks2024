@@ -92,10 +92,8 @@ export default function Login() {
               />
             </div>
             <button
-              onClick={() => {setTimeout(function(){
-                router.push("/profile")
-            }, 2000);}}
-              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+              onClick={() => router.push("/explore")}
+              className="font-bold rounded-lg relative px-20 h-16 bg-navy"
             >
               Login
             </button>

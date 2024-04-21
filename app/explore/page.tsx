@@ -5,7 +5,6 @@ import Navbar from "../components/navbar";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
-
 axios.defaults.withCredentials = true;
 
 const client = axios.create({
@@ -113,7 +112,7 @@ export default function Explore() {
                   {clubBio}
                 </div>
                 <Image
-                  className="fixed bottom-5 right-5"
+                  className="fixed bottom-5 right-5 animate animate-pulse"
                   onClick={arrowClick}
                   src="./arrow.svg"
                   height={20}
@@ -124,7 +123,7 @@ export default function Explore() {
               </div>
             </div>
             <img
-              className={`object-cover p-3
+              className={`drop-shadow-sm object-cover p-3 lg:h-[20rem] lg:p-5 rounded-[2rem]
             ${openBio ? "hidden" : "visible"}`}
               src={image}
               height={500}
@@ -138,7 +137,7 @@ export default function Explore() {
           </div>
         </div>
         <div className="flex justify-between mx-10 drop-shadow-lg mb-8">
-          <div className="rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
+          <div className="cursor-pointer rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
             <Image
               src="./dislike.svg"
               width={80}
@@ -147,7 +146,7 @@ export default function Explore() {
               onClick={() => handleClick()}
             />
           </div>
-          <div className="rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
+          <div className="cursor-pointer rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
             <Image
               src="./like.svg"
               width={80}
@@ -163,9 +162,21 @@ export default function Explore() {
     const router = useRouter();
     return (
       <div>
-      <Navbar />
-      <div className="text-xl flex justify-center">
-        You are not logged in!
+        <Navbar />
+        <div className="text-xl flex justify-center">
+          You are not logged in!
+        </div>
+
+        <div className="text-center mb-[3.4rem] mt-[3rem]">
+          <button
+            onClick={() => {
+              router.push("/");
+            }}
+            className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+          >
+            Back to Home
+          </button>
+        </div>
       </div>
       
       <div className="text-center mb-[3.4rem] mt-[3rem]">
