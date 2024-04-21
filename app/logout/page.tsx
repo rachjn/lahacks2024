@@ -1,34 +1,60 @@
 "use client";
-
-import Navbar from "../components/navbar";
 import Link from "next/link";
-import { useState } from "react";
+import Header from "../components/header";
+import Navbar from "../components/navbar";
+import { signup } from "@/app/actions/auth";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
+axios.defaults.withCredentials = true;
+
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000"
+  baseURL: "http://127.0.0.1:8000",
 });
 
-export default function Logout() {
+let axiosConfig = {
+  headers: {
+    "Content-Type": "application/json;charset=UTF-8",
+  },
+};
+
+export default function Login() {
   const [currentUser, setCurrentUser] = useState(Boolean);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const submitLogout = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    client.post(
-      "/api/logout",
-      {withCredentials: true}
-    ).then(function(res) {
-      setCurrentUser(false);
-    });
-  }
+  // useEffect(() => {
+  //   client.get("/api/user")
+  //   .then((res) => {
+  //     setCurrentUser(true);
+  //   })
+  //   .catch((error) => {
+  //     setCurrentUser(false);
+  //   });
+  // }, []);
 
+  const submitLogout = () => {
+    client
+      .post(
+        "/api/logout",
+        {
+          withCredentials: true,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json;charset=UTF-8",
+          },
+        }
+      )
+      .then(function (res) {
+        setCurrentUser(false);
+      });
+  };
   return (
     <div>
-      <Navbar />
-      <div className="m-6 mt-0">Logout</div>
-      <form onSubmit={e => submitLogout(e)}>
-        <Link href="/login" type="submit">Log out</Link>
-      </form>
+      <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]" onClick={submitLogout}>
+        Logout
+      </button>
     </div>
   );
 }
