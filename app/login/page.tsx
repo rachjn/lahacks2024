@@ -88,7 +88,12 @@ export default function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]">
+            <button
+              onClick={() => {
+                window.location.href = "/explore";
+              }}
+              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+            >
               Login
             </button>
           </form>

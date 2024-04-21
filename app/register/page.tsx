@@ -6,7 +6,6 @@ import { signup } from "@/app/actions/auth";
 import { FormEvent, useState, useEffect, ChangeEvent } from "react";
 import axios from "axios";
 
-
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
@@ -90,7 +89,12 @@ export default function Register() {
             >
               Login
             </Link> */}
-            <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]">
+            <button
+              onClick={() => {
+                window.location.href = "/login";
+              }}
+              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+            >
               Register
             </button>
           </form>
