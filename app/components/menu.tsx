@@ -29,7 +29,7 @@ export default function Menu() {
         ></button> */}
         <Image
           onClick={handleClick}
-          className={`mx-6
+          className={`mx-6 cursor-pointer
           ${isOpen ? "hidden" : "visible"}`}
           src="./burger.svg"
           width={30}
@@ -45,7 +45,7 @@ export default function Menu() {
           ></button> */}
           <Image
             onClick={handleClick}
-            className="mx-6 mt-8"
+            className="cursor-pointer mx-6 mt-[2.2rem]"
             src="./burger.svg"
             width={30}
             height={30}
@@ -64,7 +64,7 @@ export default function Menu() {
                     onClick={handleClick}
                     href={link.href}
                     key={link.name}
-                    className=""
+                    className="font-bold animate animate-fade cursor-pointer"
                   >
                     {link.name}
                   </Link>

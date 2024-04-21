@@ -112,7 +112,7 @@ export default function Explore() {
                   {clubBio}
                 </div>
                 <Image
-                  className="fixed bottom-5 right-5 animate animate-pulse"
+                  className="cursor-pointer fixed bottom-5 right-5 animate animate-pulse"
                   onClick={arrowClick}
                   src="./arrow.svg"
                   height={20}
@@ -123,7 +123,7 @@ export default function Explore() {
               </div>
             </div>
             <img
-              className={`drop-shadow-sm object-cover p-3 lg:h-[20rem] lg:p-5 rounded-[2rem]
+              className={`drop-shadow-sm object-cover p-3 md:h-[20rem] lg:p-5 rounded-[2rem]
             ${openBio ? "hidden" : "visible"}`}
               src={image}
               height={500}

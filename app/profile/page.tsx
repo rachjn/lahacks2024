@@ -100,19 +100,19 @@ export default function Profile() {
           {email}
         </div>
       </div>
-      <div className="m-10 mt-14 font-bold text-3xl">
+      <div className="m-5 md:m-10 mt-14 p-5 font-bold text-3xl bg-white text-teal rounded-xl drop-shadow-sm">
         {/* <div className=""></div> */}
         {/* {data[0]["name" as any]} */}
         <button onClick={getUserSavedClubs}>Saved Clubs</button>
-        <Image
+        {/* <Image
           className="rotate-[225deg] mx-3 inline"
           src="./arrow.svg"
           height={20}
           width={20}
           alt="arrow"
-        />
+        /> */}
         {parsedData.map((club: any, index: number) => (
-          <div key={index} className="text-navy underline my-4">
+          <div key={index} className="text-navy underline my-4 text-2xl">
             <Link href={`/${club.club_id}`} className="w-full">
               {club.name}
             </Link>{" "}
