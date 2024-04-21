@@ -10,13 +10,17 @@ const client = axios.create({
 });
 
 export default function Profile() {
-  const [context, setContext] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [data, setData] = useState("");
   client
     .get("/api/user")
     .then((response) => {
-      // Handle successful response
-      setContext(JSON.stringify(response.data));
+      return response.data.user;
+    })
+    .then((data) => {
+      setUserName(data.username);
+      setEmail(data.email);
     })
     .catch((error) => {
       // Handle error
@@ -47,15 +51,14 @@ export default function Profile() {
       <div className="flex items-center justify-center gap-5 mt-10">
         <div className="rounded-full bg-black relative w-[136px] h-[136px]"></div>
         <div className="w-[160px] h-[120px] text-lg">
-          <div className="text-3xl font-bold">Jane Doe</div>
-          Interests
+        <div className="text-3xl font-bold">{userName}</div>
+          {email}
         </div>
       </div>
       <div className="m-10 mt-14 font-bold text-3xl">
         {/* <div className=""></div> */}
         <button onClick={getUserSavedClubs}>Saved Clubs</button>
       </div>
-      <p>Context: {context}</p>
     </div>
   );
 }
