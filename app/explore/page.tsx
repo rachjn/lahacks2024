@@ -13,22 +13,11 @@ const client = axios.create({
 import Image from "next/image";
 
 export default function Explore() {
-  const [currentUser, setCurrentUser] = useState(Boolean);
   const [image, setImage] = useState("");
   const [clubID, setClubID] = useState(1);
   const [clubName, setClubName] = useState("");
   const [clubBio, setClubBio] = useState("");
   const [openBio, setOpenBio] = useState(false);
-
-  // useEffect(() => {
-  //   client.get("/api/user")
-  //   .then((res) => {
-  //     setCurrentUser(true);
-  //   })
-  //   .catch((error) => {
-  //     setCurrentUser(false);
-  //   });
-  // }, []);
 
   const makeAPICall = () => {
     client
@@ -56,6 +45,7 @@ export default function Explore() {
   }, []);
 
   const handleClick = () => {
+    if (clubID === 1) setClubID(2);
     setClubID(clubID + 1);
     makeAPICall();
   };
@@ -66,6 +56,7 @@ export default function Explore() {
   };
 
   const addClubToUser = () => {
+    if (clubID === 1) setClubID(2);
     client.put(`/api/clubs/myclubs/add/${clubID - 1}`).catch((error) => {
       console.error("Error parsing JSON:", error);
     });
@@ -76,17 +67,8 @@ export default function Explore() {
     handleClick();
   };
 
-  // if (currentUser) {
   return (
     <div className="animate animate-fade duration-300 delay-75">
-      {/* <Navbar />
-        <div className="m-6 mt-0">Explore</div>
-        <button
-          onClick={() => handleClick()}
-          className="rounded-lg relative p-4 px-20 h-16 bg-navy"
-        >
-          Click to test
-        </button> */}
       <Navbar />
       <div className="flex flex-col mt-16 items-center h-[28rem] mb-7 drop-shadow-md">
         <div className="h-[28rem] w-4/5 bg-teal rounded-xl overflow-hidden drop-shadow-md">
@@ -119,7 +101,6 @@ export default function Explore() {
                 width={20}
                 alt="arrow"
               />
-              {/* <button className="absolute bottom-0 right-0 h-6 bg-white w-6 rounded-full "></button> */}
             </div>
           </div>
           <img
