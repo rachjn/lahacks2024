@@ -56,7 +56,7 @@ export default function Login() {
       .catch((e) => {
         alert("Failed login");
         router.push("/");
-      })
+      });
   };
 
   const router = useRouter();
@@ -74,21 +74,27 @@ export default function Login() {
               {/* <label htmlFor="name">Name</label>
               <input id="name" name="name" placeholder="Name" /> */}
               <div className=" text-xl text-center relative">Welcome back!</div>
-              <label className="text-left" htmlFor="email">
+              <label
+                className="text-left md:font-bold md:text-lg"
+                htmlFor="email"
+              >
                 Email
               </label>
               <input
-                className="focus:outline-none focus:ring ring-orange py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg mb-4"
+                className="focus:outline-none focus:ring ring-orange py-3 px-4 text-navy bg-white bg-opacity-60 border-2 border-white rounded-lg mb-4"
                 id="email"
                 name="email"
                 type="email"
                 onChange={(event) => setEmail(event.target.value)}
               />
-              <label className="text-left" htmlFor="password">
+              <label
+                className="text-left md:font-bold md:text-lg"
+                htmlFor="password"
+              >
                 Password
               </label>
               <input
-                className="focus:outline-none focus:ring ring-orange py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg mb-4"
+                className="focus:outline-none focus:ring ring-orange py-3 px-4 text-navy bg-white bg-opacity-60 border-2 border-white rounded-lg mb-4"
                 id="password"
                 name="password"
                 type="password"
@@ -96,9 +102,11 @@ export default function Login() {
               />
             </div>
             <button
-              onClick={() => {setTimeout(function(){
-                router.push("/explore");
-            }, 1000);}}
+              onClick={() => {
+                setTimeout(function () {
+                  router.push("/explore");
+                }, 1000);
+              }}
               className="font-bold rounded-lg relative px-20 h-16 bg-navy"
             >
               Login

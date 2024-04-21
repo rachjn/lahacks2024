@@ -52,31 +52,37 @@ export default function Register() {
               {/* <label htmlFor="name">Name</label>
               <input id="name" name="name" placeholder="Name" /> */}
 
-              <label className="text-left" htmlFor="email">
+              <label
+                className="text-left lg:text-lg md:font-bold"
+                htmlFor="email"
+              >
                 Email
               </label>
               <input
-                className="focus:outline-none focus:ring ring-orange py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg mb-4"
+                className="focus:outline-none md:text-lg focus:ring text-navy ring-orange py-3 px-4 bg-white bg-opacity-60 border-2 border-white rounded-lg mb-4"
                 id="email"
                 name="email"
                 type="email"
                 onChange={(event) => setEmail(event.target.value)}
               />
-              <label className="text-left" htmlFor="name">
+              <label className="text-left md:font-bold" htmlFor="name">
                 Name
               </label>
               <input
-                className="focus:outline-none focus:ring ring-orange py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg mb-4"
+                className="focus:outline-none focus:ring text-navy ring-orange py-3 px-4 bg-white bg-opacity-60 border-2 border-white rounded-lg mb-4"
                 id="name"
                 name="name"
                 type="name"
                 onChange={(event) => setUsername(event.target.value)}
               />
-              <label className="text-left" htmlFor="password">
+              <label
+                className="text-left md:font-bold md:text-lg "
+                htmlFor="password"
+              >
                 Password
               </label>
               <input
-                className="focus:outline-none focus:ring ring-orange  py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg"
+                className="focus:outline-none focus:ring text-navy ring-orange  py-3 px-4 bg-white bg-opacity-60 border-2 border-white rounded-lg"
                 id="password"
                 name="password"
                 type="password"
@@ -96,14 +102,13 @@ export default function Register() {
             >
               Register
             </button>
-            
           </form>
           <button
-              onClick={() => router.push("/login")}
-              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
-            >
-              Login
-            </button>
+            onClick={() => router.push("/login")}
+            className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+          >
+            Login
+          </button>
         </div>
       </div>
     </div>
