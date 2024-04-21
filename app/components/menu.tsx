@@ -24,7 +24,7 @@ export default function Menu() {
       <div>
         <button
           onClick={handleClick}
-          className={`h-16 bg-gray-500 w-16 m-7
+          className={`h-16 bg-gray-500 w-11 m-7
         ${isOpen ? "hidden" : "visible"}`}
         ></button>
       </div>
@@ -34,7 +34,7 @@ export default function Menu() {
         <div className="absolute left-0 m-6">
           <button
             onClick={handleClick}
-            className="h-16 bg-gray-500 w-16"
+            className="h-16 bg-gray-500 w-10"
           ></button>
         </div>
         <div className="min-h-screen flex items-center justify-center">

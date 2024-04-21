@@ -19,7 +19,6 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({});
 
-
   // useEffect(() => {
   //   client.get("/api/user")
   //   .then((res) => {
@@ -49,16 +48,17 @@ export default function Register() {
           <Header />
         </div>
         {/* <div className="m-6 m-24 mt-0 text-center relative">hello</div> */}
-        <div className="text-center mb-[16.5rem] mt-[3rem]">
+        <div className="text-center mb-[2.9rem] mt-[2rem]">
           <form action={signup} onSubmit={submitRegister}>
-            <div className="flex flex-col mb-10 mx-10 gap-1">
+            <div className="flex flex-col mb-10 mx-14 gap-1">
               {/* <label htmlFor="name">Name</label>
               <input id="name" name="name" placeholder="Name" /> */}
+
               <label className="text-left" htmlFor="email">
                 Email
               </label>
               <input
-                className="focus:outline-none focus:ring ring-teal py-5 px-4 bg-white bg-opacity-60 border-2 border-white rounded mb-4"
+                className="focus:outline-none focus:ring ring-orange py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg mb-4"
                 id="email"
                 name="email"
                 type="email"
@@ -68,7 +68,7 @@ export default function Register() {
                 Name
               </label>
               <input
-                className="focus:outline-none focus:ring ring-teal py-5 px-4 bg-white bg-opacity-60 border-2 border-white rounded mb-4"
+                className="focus:outline-none focus:ring ring-orange py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg mb-4"
                 id="name"
                 name="name"
                 type="name"
@@ -78,7 +78,7 @@ export default function Register() {
                 Password
               </label>
               <input
-                className="focus:outline-none focus:ring ring-teal py-5 px-4 bg-white bg-opacity-60 border-2 border-white rounded"
+                className="focus:outline-none focus:ring ring-orange  py-3 px-4 bg-white bg-opacity-20 border-2 border-white rounded-lg"
                 id="password"
                 name="password"
                 type="password"
@@ -92,7 +92,7 @@ export default function Register() {
             >
               Login
             </Link> */}
-            <button className="rounded-lg relative p-4 px-20 h-16 bg-navy">
+            <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]">
               Register
             </button>
           </form>
