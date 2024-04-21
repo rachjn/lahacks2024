@@ -17,7 +17,6 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [formData, setFormData] = useState({});
 
   // useEffect(() => {
   //   client.get("/api/user")

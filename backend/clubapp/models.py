@@ -8,7 +8,10 @@ class Club (models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     insta = models.CharField(max_length=500)
-    users = models.ManyToManyField(UserModel)
+    email = models.CharField(max_length=255)
+    website = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='images/', default=None)
+    users = models.ManyToManyField(UserModel, blank=True)
 
     def __str__(self):
         return self.name
