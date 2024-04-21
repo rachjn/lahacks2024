@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export default function Explore() {
   const [image, setImage] = useState("");
-  const [clubID, setClubID] = useState(81);
+  const [clubID, setClubID] = useState(1);
   const [clubName, setClubName] = useState("");
   const [clubBio, setClubBio] = useState("");
   const [openBio, setOpenBio] = useState(false);

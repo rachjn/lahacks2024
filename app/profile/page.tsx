@@ -1,7 +1,7 @@
 "use client";
 import Navbar from "../components/navbar";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 axios.defaults.withCredentials = true;
 
@@ -11,7 +11,7 @@ const client = axios.create({
 
 export default function Profile() {
   const [context, setContext] = useState("");
-
+  const [data, setData] = useState("");
   client
     .get("/api/user")
     .then((response) => {
@@ -25,6 +25,20 @@ export default function Profile() {
 
   // const contextJson = JSON.parse(context);
   // const myName = contextJson.username;
+    useEffect(()=> {
+      getUserSavedClubs();
+    }, [])
+
+    const getUserSavedClubs = () => { 
+      client.get("api/clubs/myclubs")
+      .then((JSONresponse)=> {
+        setData(JSON.stringify(JSONresponse.data));
+        console.log(JSON.parse(data)[0]);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+    }
 
   return (
     <div className="animate animate-fade duration-300 delay-75">
@@ -38,7 +52,9 @@ export default function Profile() {
       </div>
       <div className="m-10 mt-14 font-bold text-3xl">
         {/* <div className=""></div> */}
-        Saved Clubs
+        <button onClick={getUserSavedClubs}>
+          Saved Clubs
+        </button>
       </div>
       <p>Context: {context}</p>
     </div>
