@@ -4,8 +4,6 @@ import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Juncture",
   description: "Club discovery at UCLA.",
@@ -18,7 +16,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className=" font-rigsans">
+        <link rel="stylesheet" href="https://use.typekit.net/saw3ipn.css" />
         {children}
         <footer className="py-5 border-t border-gray-900 bg-black overflow-hidden">
           <div className="inline-grid grid-flow-col gap-5 px-5">
