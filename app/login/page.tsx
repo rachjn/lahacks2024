@@ -5,6 +5,7 @@ import Navbar from "../components/navbar";
 import { signup } from "@/app/actions/auth";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 axios.defaults.withCredentials = true;
 
@@ -53,6 +54,8 @@ export default function Login() {
         setCurrentUser(true);
       });
   };
+
+  const router = useRouter();
   return (
     <div>
       <div className="overscroll-none">
@@ -88,7 +91,10 @@ export default function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]">
+            <button
+              onClick={() => router.push("/explore")}
+              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+            >
               Login
             </button>
           </form>

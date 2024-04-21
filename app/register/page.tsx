@@ -5,7 +5,7 @@ import Navbar from "../components/navbar";
 import { signup } from "@/app/actions/auth";
 import { FormEvent, useState, useEffect, ChangeEvent } from "react";
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000",
@@ -37,7 +37,7 @@ export default function Register() {
       password: password,
     });
   };
-
+  const router = useRouter();
   return (
     <div>
       <div className="overscroll-none animate animate-fade duration-300 delay-100">
@@ -90,7 +90,10 @@ export default function Register() {
             >
               Login
             </Link> */}
-            <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]">
+            <button
+              onClick={() => router.push("/login")}
+              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+            >
               Register
             </button>
           </form>
