@@ -75,14 +75,14 @@ export default function Menu() {
           </div>
         </div>
       </div>
-      {isOpen === false && <Header />}
+      <div className="mt-3">{isOpen === false && <Header />}</div>
       <a href="/profile">
         <Image
           src="./user.svg"
           width={35}
           height={30}
           alt="menu"
-          className={`m-7 ml-4
+          className={`m-7 ml-4 mt-8
           ${isOpen ? "hidden" : "visible"}`}
         />
       </a>
