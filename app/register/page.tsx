@@ -97,12 +97,12 @@ export default function Register() {
               Register
             </button>
           </form>
-            <button
-              onClick={() => router.push("/login")}
-              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
-            >
-              Login
-            </button>
+          <button
+            onClick={() => router.push("/login")}
+            className="font-bold rounded-lg relative px-20 h-10 bg-navy"
+          >
+            Login
+          </button>
         </div>
       </div>
     </div>

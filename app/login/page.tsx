@@ -93,7 +93,7 @@ export default function Login() {
             </div>
             <button
               onClick={() => router.push("/explore")}
-              className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+              className="font-bold rounded-lg relative px-20 h-16 bg-navy"
             >
               Login
             </button>

@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
-      <body className=" font-rigsans">
+      <body className="flex flex-col min-h-screen font-rigsans">
         <Image
           src="./orangeblob.svg"
           layout="fill"
@@ -28,7 +28,7 @@ export default function RootLayout({
 
         <link rel="stylesheet" href="https://use.typekit.net/saw3ipn.css" />
         {children}
-        <footer className="py-5 border-t  bg-white overflow-hidden">
+        <footer className="mt-auto py-5 border-t  bg-white overflow-hidden">
           {/* <Image
             src="./blob.svg"
             layout="fill"
