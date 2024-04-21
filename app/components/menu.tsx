@@ -37,7 +37,15 @@ export default function Menu() {
           alt="menu"
         />
       </div>
-      <div className={`${isOpen ? "bg-teal h-screen basis-full" : "hidden"}`}>
+      <div
+        className="fixed z-20 colored-circle top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-teal rounded-full"
+        style={{
+          width: isOpen ? "200vw" : "0",
+          height: isOpen ? "200vh" : "0",
+          transition: "width 0.5s, height 0.5s",
+        }}
+      ></div>
+      <div className={`${isOpen ? " h-screen basis-full" : "hidden"}`}>
         <div className="absolute left-0">
           {/* <button
             onClick={handleClick}
@@ -45,7 +53,7 @@ export default function Menu() {
           ></button> */}
           <Image
             onClick={handleClick}
-            className="cursor-pointer mx-6 mt-[2.2rem]"
+            className="fixed z-30 cursor-pointer mx-6 mt-[2.2rem]"
             src="./burger.svg"
             width={30}
             height={30}
@@ -64,7 +72,7 @@ export default function Menu() {
                     onClick={handleClick}
                     href={link.href}
                     key={link.name}
-                    className="font-bold animate animate-fade cursor-pointer"
+                    className="z-30 font-bold animate animate-fade cursor-pointer z-100"
                   >
                     {link.name}
                   </Link>
