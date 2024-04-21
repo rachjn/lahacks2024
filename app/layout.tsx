@@ -19,11 +19,11 @@ export default function RootLayout({
       <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
       <body className=" font-rigsans">
         <Image
-          src="./blob.svg"
+          src="./orangeblob.svg"
           layout="fill"
           objectFit="cover"
           alt="blob"
-          className="-z-10"
+          className="absolute -mt-[15rem] -z-10"
         />
 
         <link rel="stylesheet" href="https://use.typekit.net/saw3ipn.css" />

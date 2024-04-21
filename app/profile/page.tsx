@@ -50,32 +50,15 @@ export default function Profile() {
         // setClubImage(JSON.parse(data)[0]["description"]);
         const newData = JSON.parse(data);
         setParsedData(newData);
-
-        // const newID = parsedData
-        // parsedData.forEach((club: any, index: number) => {
-        //   const newID = club[index]["club_id"];
-        //   setClubIDs([...clubIDs, newID]);
-        // });
-
-        // const addClubID = (newID) => {
-        //   setClubIDs([...clubIDs, newID]);
-        // };
-
-        console.log(clubIDs);
         // console.log(parsedData);
         //IMPORTANT: parsedData is an ARRAY of JSON objects.
         //each JSON object is a club, with an id, name, etc.
 
         // parsedData.forEach((club: any, index: number) => {
-        //   const id = club["club_id"];
-        //   clubIDs[index] = id;
+        //   const name = club["name"];
+        //   clubNames[index] = name;
         //   // setClubNames();
         // });
-
-        // console.log(clubIDs);
-        // cont clubIDs = parsedData.map((club: any, index: number) => (
-
-        // ))
 
         // clubNames.map((name) => {
         //   console.log(name);

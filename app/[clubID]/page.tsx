@@ -54,8 +54,8 @@ export default function Club({ params }: { params: { clubID: number } }) {
         <Link href={`${insta}`}>
           <Image
             src="./instagram.svg"
-            height={70}
-            width={70}
+            height={150}
+            width={150}
             alt="club photo"
           />
         </Link>
@@ -71,12 +71,21 @@ export default function Club({ params }: { params: { clubID: number } }) {
         </div>
       </div>
       <img
-        className="rounded-lg"
+        className="rounded-lg mb-5"
         src={`${clubImage}`}
         height={400}
         width={400}
         alt="club photo"
       />
+      <Link href="/profile">
+        <Image
+          className="rotate-[-45deg]"
+          src="./arrow.svg"
+          height={25}
+          width={25}
+          alt="arrow"
+        />
+      </Link>
     </div>
   );
 }
