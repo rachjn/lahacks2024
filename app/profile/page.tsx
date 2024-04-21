@@ -23,6 +23,9 @@ export default function Profile() {
       console.error("Error fetching user data:", error);
     });
 
+  // const contextJson = JSON.parse(context);
+  // const myName = contextJson.username;
+
   return (
     <div className="animate animate-fade duration-300 delay-75">
       <Navbar />

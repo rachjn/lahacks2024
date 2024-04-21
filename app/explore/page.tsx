@@ -1,6 +1,6 @@
 "use client";
 import { getClubData } from "../api/clubs";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import axios from "axios";
 
@@ -16,28 +16,29 @@ export default function Explore() {
   const [clubID, setClubID] = useState(81);
 
   const makeAPICall = () => {
-    client.get(`/api/clubs/${clubID}`)
-    .then((res) => {
-      return res.data;
-    })
-    .then(data => {
-      console.log(JSON.stringify(data))
-      setImage(data.image);
-    })
-    .catch((error) => {
-      console.error("Error parsing JSON:", error);
-    });
-  }
-  
-  useEffect(()=>{ 
+    client
+      .get(`/api/clubs/${clubID}`)
+      .then((res) => {
+        return res.data;
+      })
+      .then((data) => {
+        console.log(JSON.stringify(data));
+        setImage(data.image);
+      })
+      .catch((error) => {
+        console.error("Error parsing JSON:", error);
+      });
+  };
+
+  useEffect(() => {
     makeAPICall();
-  }, [])
-  
+  }, []);
+
   const handleClick = () => {
     makeAPICall();
     setClubID(clubID + 1);
-  }
-  
+  };
+
   console.log(image);
   return (
     <div className="animate animate-fade duration-300 delay-75">
@@ -56,7 +57,14 @@ export default function Explore() {
             Club Name
             <div className="mt-2 font-normal text-base">Biography</div>
           </div>
-          <div className="bg-gradient-to-t from-30% from-navy to-transparent h-[10rem] mt-[20rem]"></div>
+          <img
+            className="object-cover p-3"
+            src={image}
+            height={500}
+            width={500}
+            alt="club image"
+          />
+          <div className="w-full -z-10 absolute bg-gradient-to-t from-30% from-navy to-transparent h-[10rem]"></div>
         </div>
       </div>
       <div className="flex justify-between mx-10 drop-shadow-lg mb-8">
