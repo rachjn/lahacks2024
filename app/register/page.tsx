@@ -6,6 +6,8 @@ import { signup } from "@/app/actions/auth";
 import { FormEvent, useState, useEffect, ChangeEvent } from "react";
 import axios from "axios";
 
+axios.defaults.withCredentials = true;
+
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
@@ -17,19 +19,20 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({});
 
-  useEffect(() => {
-    client
-      .get("/api/user")
-      .then((res) => {
-        setCurrentUser(true);
-      })
-      .catch((error) => {
-        setCurrentUser(false);
-      });
-  }, []);
+
+  // useEffect(() => {
+  //   client.get("/api/user")
+  //   .then((res) => {
+  //     setCurrentUser(true);
+  //   })
+  //   .catch((error) => {
+  //     setCurrentUser(false);
+  //   });
+  // }, []);
 
   const submitRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("here");
 
     client.post("/api/register", {
       email: email,

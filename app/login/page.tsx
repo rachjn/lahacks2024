@@ -3,53 +3,58 @@ import Link from "next/link";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import { signup } from "@/app/actions/auth";
-import { FormEvent, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-// const client = axios.create({
-//     baseURL: "http://127.0.0.1:8000"
-//   });
+axios.defaults.withCredentials = true;
 
-export default function Login() {
-  const [currentUser, setCurrentUser] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setName] = useState("");
-  const [password, setPassword] = useState("");
+const client = axios.create({
+  baseURL: "http://127.0.0.1:8000", 
+});
 
-  useEffect(() => {
-    submitLogin(event);
-  }, []);
-
-  //   const createFormData = () => {
-  //     const formData = new FormData();
-  //     formData.set("username", "rachel");
-  //     formData.set("email", "rachel@gmail.com");
-  //     formData.set("password", "1234244189");
-  //     return formData;
-  //   };
-
-  const submitLogin = async (event: any) => {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.set("username", username);
-    formData.set("email", username);
-    formData.set("password", username);
-    formData.set("currentUser", username);
-    const response = await fetch("http://127.0.0.1:8000/api/login", {
-      method: "POST",
-      body: formData,
-    });
-    // Try parsing the response as JSON
-    try {
-      const jsonData = JSON.parse(response.toString());
-      console.log("Parsed response from API:", jsonData);
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
+let axiosConfig = {
+    headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
     }
-    console.log("response from API", response);
   };
 
+export default function Login() {
+
+  const [currentUser, setCurrentUser] = useState(Boolean);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  // useEffect(() => {
+  //   client.get("/api/user")
+  //   .then((res) => {
+  //     setCurrentUser(true);
+  //   })
+  //   .catch((error) => {
+  //     setCurrentUser(false);
+  //   });
+  // }, []);
+
+
+  const submitLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    client.post(
+      "/api/login",
+      {
+        withCredentials: true,
+        email: email,
+        password: password
+      },
+      {headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+      }}
+    ).then(function(res) {
+      setCurrentUser(true);
+    });
+  }
+
   return (
+    
     <div>
       <div className="overscroll-none">
         {/* <Navbar /> */}
@@ -85,13 +90,9 @@ export default function Login() {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            {/* <button type="submit">Sign Up</button> */}
-            <Link
-              href="/login"
-              className="rounded-md relative p-4 px-20 h-16 bg-gray-500 w-16"
-            >
+            <button className="rounded-md relative p-4 px-20 h-16 bg-gray-500 w-16">
               Login
-            </Link>
+            </button>
           </form>
         </div>
       </div>
