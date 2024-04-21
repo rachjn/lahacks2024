@@ -16,6 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" type="image/svg+xml" href="/public/favicon.ico" />
       <body className=" font-rigsans">
         <Image
           src="./blob.svg"

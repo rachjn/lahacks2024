@@ -14,9 +14,8 @@ export default function Menu() {
   };
   const pathname = usePathname();
   const navLinks = [
-    { name: "HOME", href: "/" },
-    { name: "PROFILE", href: "/profile" },
     { name: "EXPLORE", href: "/explore" },
+    { name: "PROFILE", href: "/profile" },
     { name: "LOGOUT", href: "/logout" },
   ];
   return (

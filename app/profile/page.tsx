@@ -25,20 +25,21 @@ export default function Profile() {
 
   // const contextJson = JSON.parse(context);
   // const myName = contextJson.username;
-    useEffect(()=> {
-      getUserSavedClubs();
-    }, [])
+  useEffect(() => {
+    getUserSavedClubs();
+  }, []);
 
-    const getUserSavedClubs = () => { 
-      client.get("api/clubs/myclubs")
-      .then((JSONresponse)=> {
+  const getUserSavedClubs = () => {
+    client
+      .get("api/clubs/myclubs")
+      .then((JSONresponse) => {
         setData(JSON.stringify(JSONresponse.data));
         console.log(JSON.parse(data)[0]);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
       });
-    }
+  };
 
   return (
     <div className="animate animate-fade duration-300 delay-75">
@@ -52,9 +53,7 @@ export default function Profile() {
       </div>
       <div className="m-10 mt-14 font-bold text-3xl">
         {/* <div className=""></div> */}
-        <button onClick={getUserSavedClubs}>
-          Saved Clubs
-        </button>
+        <button onClick={getUserSavedClubs}>Saved Clubs</button>
       </div>
       <p>Context: {context}</p>
     </div>

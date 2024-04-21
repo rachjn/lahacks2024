@@ -52,7 +52,14 @@ export default function Login() {
   };
   return (
     <div>
-      <button className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]" onClick={submitLogout}>
+      <Navbar />
+      <div className="text-xl flex justify-center">
+        Are you sure you want to log out?
+      </div>
+      <button
+        className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+        onClick={submitLogout}
+      >
         Logout
       </button>
     </div>
