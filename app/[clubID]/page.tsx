@@ -60,7 +60,7 @@ export default function Club({ params }: { params: { clubID: number } }) {
           />
         </Link>
       </div>
-      <div className="mb-4">{email}</div>
+      <div className="mb-3">{email}</div>
 
       <div className="bg-white rounded-lg text-navy p-5 mb-5">
         {bio}

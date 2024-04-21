@@ -74,9 +74,8 @@ export default function Profile() {
   }, []);
 
   // const displayNames = clubNames.map((name) => <div key={name}>{name}</div>);
-  const dataMap: Number[] = parsedData.map((club: any) => (club.club_id));
-  const x = (dataMap[0]);
-
+  const dataMap: Number[] = parsedData.map((club: any) => club.club_id);
+  const x = dataMap[0];
 
   const makeAPICall = () => {
     client
@@ -118,7 +117,7 @@ export default function Profile() {
           alt="arrow"
         />
         {parsedData.map((club: any, index: number) => (
-          <div key={index}>
+          <div key={index} className="text-navy underline my-4">
             <Link href={`/${club.club_id}`} className="w-full">
               {club.name}
             </Link>{" "}
