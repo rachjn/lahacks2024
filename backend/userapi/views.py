@@ -26,6 +26,7 @@ class UserLogin(APIView):
     authentication_classes = (SessionAuthentication,)
 
     def post(self, request):
+        print("Here")
         data = request.data
         assert validate_email(data)
         assert validate_password(data)

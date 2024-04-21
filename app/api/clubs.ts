@@ -1,6 +1,8 @@
 import { cache, useEffect } from "react";
 import axios from "axios";
 
+axios.defaults.withCredentials = true;
+
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
@@ -29,18 +31,18 @@ export const getClubData = async () => {
   //     return res.json()
   //     }
 
-  const clubID = 1; // replace with dynamic value for club ID
-  client
-    .get(`/api/clubs/${clubID}`)
-    .then((res) => {
-      //   setCurrentUser(true);
-      const jsonData = JSON.stringify(res.data);
-      console.log("Parsed response from API:", jsonData);
-    })
-    .catch((error) => {
-      console.error("Error parsing JSON:", error);
-      //   setCurrentUser(false);
-    });
+  // const clubID = 81; // replace with dynamic value for club ID
+  // client
+  //   .get(`/api/clubs/${clubID}`)
+  //   .then((res) => {
+  //     //   setCurrentUser(true);
+  //     const jsonData = JSON.stringify(res.data);
+  //     console.log("Parsed response from API:", jsonData);
+  //   })
+  //   .catch((error) => {
+  //     console.error("Error parsing JSON:", error);
+  //     //   setCurrentUser(false);
+  //   });
 };
 
 // try {

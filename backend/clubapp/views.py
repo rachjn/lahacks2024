@@ -25,3 +25,4 @@ class UserClubsView(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
         return Club.objects.filter(users=user)
+    

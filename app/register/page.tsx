@@ -6,7 +6,6 @@ import { signup } from "@/app/actions/auth";
 import { FormEvent, useState, useEffect, ChangeEvent } from "react";
 import axios from "axios";
 
-axios.defaults.withCredentials = true;
 
 const client = axios.create({
   baseURL: "http://127.0.0.1:8000",

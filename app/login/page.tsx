@@ -52,7 +52,6 @@ export default function Login() {
       setCurrentUser(true);
     });
   }
-
   return (
     
     <div>
