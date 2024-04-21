@@ -53,6 +53,10 @@ export default function Login() {
       .then(function (res) {
         setCurrentUser(true);
       })
+      .catch((e) => {
+        alert("Failed login");
+        router.push("/");
+      })
   };
 
   const router = useRouter();
@@ -93,8 +97,8 @@ export default function Login() {
             </div>
             <button
               onClick={() => {setTimeout(function(){
-                if (currentUser) router.push("/profile");
-            }, 2000);}}
+                router.push("/explore");
+            }, 1000);}}
               className="font-bold rounded-lg relative px-20 h-16 bg-navy"
             >
               Login
