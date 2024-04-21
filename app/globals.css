@@ -8,6 +8,8 @@
   /* --foreground-rgb: 0, 0, 0; */
   /* --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
-  background-color: #EA9139;
+  /* background-image: url("../public/orangeblob.svg");
+  background-position: top; */
+  background-color: #419EBD;
   color: white;
 }
