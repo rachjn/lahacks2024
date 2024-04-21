@@ -50,8 +50,8 @@ export default function Explore() {
         Click to test
       </button> */}
       <Navbar />
-      <div className="flex flex-col justify-around -mt-[4rem] items-center h-[80vh] drop-shadow-md">
-        <div className="h-2/3 w-4/5 bg-black rounded-xl overflow-hidden drop-shadow-md">
+      <div className="flex flex-col mt-16 items-center h-[28rem] mb-7 drop-shadow-md">
+        <div className="h-[28rem] w-4/5 bg-black rounded-xl overflow-hidden drop-shadow-md">
           <div className="absolute mx-5 h-[10rem] mt-[20rem] font-bold text-3xl ">
             Club Name
             <div className="mt-2 font-normal text-base">Biography</div>
@@ -59,7 +59,7 @@ export default function Explore() {
           <div className="bg-gradient-to-t from-30% from-navy to-transparent h-[10rem] mt-[20rem]"></div>
         </div>
       </div>
-      <div className="flex justify-between mx-10 -mt-20 mb-[2.5rem] drop-shadow-lg">
+      <div className="flex justify-between mx-10 drop-shadow-lg mb-8">
         <div className="rounded-full h-[7rem] w-[7rem] bg-white flex justify-center">
           <Image src="./dislike.svg" width={80} height={80} alt="dislike" />
         </div>
