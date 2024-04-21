@@ -46,7 +46,7 @@ export default function Register() {
           <Header />
         </div>
         {/* <div className="m-6 m-24 mt-0 text-center relative">hello</div> */}
-        <div className="text-center mb-[2.9rem] mt-[2rem]">
+        <div className="text-center mb-[3.4rem] mt-[3rem]">
           <form action={signup} onSubmit={submitRegister}>
             <div className="flex flex-col mb-10 mx-14 gap-1">
               {/* <label htmlFor="name">Name</label>
