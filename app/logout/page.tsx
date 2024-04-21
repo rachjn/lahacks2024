@@ -3,6 +3,7 @@ import Link from "next/link";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import { signup } from "@/app/actions/auth";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -50,18 +51,23 @@ export default function Login() {
         setCurrentUser(false);
       });
   };
+
+  const router = useRouter();
   return (
     <div>
       <Navbar />
       <div className="text-xl flex justify-center">
         Are you sure you want to log out?
       </div>
-      <button
-        className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
-        onClick={submitLogout}
-      >
-        Logout
-      </button>
+      
+      <div className="text-center mb-[3.4rem] mt-[3rem]">
+        <button
+          onClick={() => {router.push("/"); submitLogout();}}
+          className="font-bold rounded-lg relative px-20 h-16 bg-navy mb-[1rem]"
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 }

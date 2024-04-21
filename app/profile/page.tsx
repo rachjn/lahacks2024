@@ -74,6 +74,27 @@ export default function Profile() {
   }, []);
 
   // const displayNames = clubNames.map((name) => <div key={name}>{name}</div>);
+  const dataMap: Number[] = parsedData.map((club: any) => (club.club_id));
+  const x = (dataMap[0]);
+
+
+  const makeAPICall = () => {
+    client
+      .get(`/api/clubs/${x}`)
+      .then((res) => {
+        return res.data;
+      })
+      .then((data) => {
+        console.log(JSON.stringify(data));
+      })
+      .catch((error) => {
+        console.error("Error parsing JSON:", error);
+      });
+  };
+
+  useEffect(() => {
+    makeAPICall();
+  }, []);
 
   return (
     <div className="animate animate-fade duration-300 delay-75">
