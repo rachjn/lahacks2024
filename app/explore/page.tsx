@@ -1,6 +1,6 @@
 "use client";
 import { getClubData } from "../api/clubs";
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Navbar from "../components/navbar";
 import axios from 'axios'
 
@@ -11,31 +11,41 @@ const client = axios.create({
 });
 
 export default function Explore() {
-  const [image, setImage] = useState("")
-  const clubID = 81; // replace with dynamic value for club ID
-  client.get(`/api/clubs/${clubID}`)
+  const [image, setImage] = useState("");
+  const [clubID, setClubID] = useState(81);
+
+  const makeAPICall = () => {
+    client.get(`/api/clubs/${clubID}`)
     .then((res) => {
-      //   setCurrentUser(true);
-      return res.data.image;
+      return res.data;
     })
-    .then(img => {
-      setImage(img);
+    .then(data => {
+      console.log(JSON.stringify(data))
+      setImage(data.image);
     })
     .catch((error) => {
       console.error("Error parsing JSON:", error);
-      //   setCurrentUser(false);
     });
-
-    console.log(image)
-  return (
+  }
+  
+  useEffect(()=>{ 
+    makeAPICall();
+  }, [])
+  
+  const handleClick = () => {
+    makeAPICall();
+    setClubID(clubID + 1);
+  }
+  
+    return (
     <div>
       <Navbar />
       <div className="m-6 mt-0">Explore</div>
       <button
-        //onClick={getClubData}
+        onClick={() => handleClick()}
         className="rounded-lg relative p-4 px-20 h-16 bg-navy"
       >
-        Click to test
+        Go to Next Club
       </button>
       
       <img src= {image}></img>
