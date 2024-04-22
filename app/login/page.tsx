@@ -54,7 +54,6 @@ export default function Login() {
         setCurrentUser(true);
       })
       .catch((e) => {
-        alert("Failed login");
         router.push("/");
       });
   };
